@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vacancies — Helping to Give</title>
+  <link rel="stylesheet" href="../style.css" />
+  <style>
+    .job-card {
+      background: var(--navy-mid);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 36px;
+      margin-bottom: 20px;
+      transition: border-color 0.3s;
+      cursor: pointer;
+    }
+    .job-card:hover { border-color: var(--border-accent); }
+    .job-header { display:flex;align-items:flex-start;justify-content:space-between;gap:20px;margin-bottom:16px;flex-wrap:wrap; }
+    .job-title { font-family:'Syne',sans-serif;font-size:20px;font-weight:700; }
+    .job-tags { display:flex;gap:8px;flex-wrap:wrap;margin-top:8px; }
+    .job-tag {
+      padding:4px 12px;
+      border-radius:6px;
+      font-size:12px;
+      font-weight:500;
+      letter-spacing:0.04em;
+    }
+    .tag-type { background:rgba(29,111,232,0.12);color:var(--accent-bright);border:1px solid rgba(29,111,232,0.2); }
+    .tag-location { background:rgba(255,255,255,0.04);color:var(--text-secondary);border:1px solid var(--border); }
+    .tag-level { background:rgba(200,169,110,0.1);color:var(--gold);border:1px solid rgba(200,169,110,0.2); }
+    .job-desc { font-size:14px;color:var(--text-secondary);line-height:1.8;margin-bottom:20px; }
+    .job-reqs { list-style:none;display:flex;flex-direction:column;gap:6px; }
+    .job-reqs li { font-size:14px;color:var(--text-secondary);padding-left:16px;position:relative; }
+    .job-reqs li::before { content:'—';position:absolute;left:0;color:var(--accent-bright); }
+    .apply-btn {
+      margin-top:24px;
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:11px 22px;
+      border-radius:8px;
+      border:1px solid var(--border-accent);
+      color:var(--accent-bright);
+      font-size:14px;
+      font-weight:500;
+      cursor:pointer;
+      background:var(--accent-glow);
+      transition:all 0.2s;
+    }
+    .apply-btn:hover { background:var(--accent);color:white;border-color:var(--accent); }
+    .perks-grid { display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:36px; }
+    .perk { padding:24px;background:var(--navy-mid);border:1px solid var(--border);border-radius:12px;text-align:center; }
+    .perk-icon { font-size:28px;margin-bottom:12px; }
+    .perk h4 { font-family:'Syne',sans-serif;font-size:15px;font-weight:700;margin-bottom:6px; }
+    .perk p { font-size:13px;color:var(--text-secondary); }
+    @media(max-width:768px) { .perks-grid { grid-template-columns:1fr; } }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a href="../" class="logo"><div class="logo-icon">HG</div><div class="logo-text">Helping to Give<span>Limited</span></div></a>
+    <div class="header-spacer"></div>
+    <button class="header-cta" id="ctaBtn">Leave a Request</button>
+    <span class="header-sections-label">Sections</span>
+    <button class="burger" id="burger"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<div class="nav-overlay" id="navOverlay"></div>
+<nav class="nav-drawer" id="navDrawer">
+  <div class="nav-drawer-header">
+    <div style="font-family:'Syne',sans-serif;font-weight:700;font-size:15px;color:var(--text-primary)">Navigation</div>
+    <button class="nav-close" id="navClose">✕</button>
+  </div>
+  <div class="nav-links">
+    <a href="../"><span class="dot"></span>Home</a>
+    <a href="../about/"><span class="dot"></span>About Us</a>
+    <a href="../services/"><span class="dot"></span>Services</a>
+    <a href="../responsible-gaming/"><span class="dot"></span>Responsible Gaming</a>
+    <a href="../vacancies/"><span class="dot"></span>Vacancies</a>
+    <a href="../press/"><span class="dot"></span>Press Centre</a>
+    <a href="../contacts/"><span class="dot"></span>Contacts</a>
+    <a href="../policy/"><span class="dot"></span>Policy</a>
+  </div>
+</nav>
+
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal">
+    <h2>Leave a Request</h2>
+    <form id="ctaForm">
+      <div class="form-group"><label>Name</label><input type="text" placeholder="Your name" required /></div>
+      <div class="form-group"><label>Email</label><input type="email" placeholder="your@email.com" required /></div>
+      <div class="form-group"><label>Comment</label><textarea placeholder="Tell us about your project..."></textarea></div>
+      <button type="submit" class="modal-submit">Send</button>
+      <p class="modal-policy">By submitting, you agree to the processing of personal data in accordance with our <a href="../policy/">Privacy Policy</a>.</p>
+    </form>
+  </div>
+</div>
+
+<main>
+  <div class="page-hero">
+    <div class="tag">Join Our Team</div>
+    <h1>Vacancies</h1>
+    <p>We are building the next generation of betting and gaming technology. If you are passionate about solving complex problems, we would love to hear from you.</p>
+  </div>
+
+  <section class="section">
+    <div class="section-label">Open Positions</div>
+
+    <div class="job-card">
+      <div class="job-header">
+        <div>
+          <div class="job-title">Android Developer</div>
+          <div class="job-tags">
+            <span class="job-tag tag-type">Full-time</span>
+            <span class="job-tag tag-location">🇬🇧 Remote / Derby</span>
+            <span class="job-tag tag-level">Mid–Senior</span>
+          </div>
+        </div>
+      </div>
+      <p class="job-desc">We are looking for an experienced Android Developer to join our mobile engineering team. You will be building native Android applications for betting and gaming operators — handling real-time data, complex state management, and delivering reliable experiences across the Android ecosystem.</p>
+      <ul class="job-reqs">
+        <li>3+ years of commercial Android development experience</li>
+        <li>Strong proficiency in Kotlin; experience with Jetpack Compose is a plus</li>
+        <li>Understanding of MVVM/MVI architecture patterns</li>
+        <li>Experience with REST APIs, WebSockets, and real-time data handling</li>
+        <li>Knowledge of Google Play publishing policies and in-app billing</li>
+        <li>Bonus: experience in regulated industries (fintech, gaming, healthcare)</li>
+      </ul>
+      <button class="apply-btn" onclick="document.getElementById('ctaBtn').click()">Apply for this role →</button>
+    </div>
+
+    <div class="job-card">
+      <div class="job-header">
+        <div>
+          <div class="job-title">QA Engineer</div>
+          <div class="job-tags">
+            <span class="job-tag tag-type">Full-time</span>
+            <span class="job-tag tag-location">🇬🇧 Remote / Derby</span>
+            <span class="job-tag tag-level">Mid-level</span>
+          </div>
+        </div>
+      </div>
+      <p class="job-desc">Join our QA team to ensure the quality and stability of our mobile and web platforms. You will design test plans, automate regression suites, and work closely with developers to catch issues before they reach production.</p>
+      <ul class="job-reqs">
+        <li>2+ years in software QA in an agile environment</li>
+        <li>Experience with automated testing frameworks (Appium, Espresso, XCTest)</li>
+        <li>Proficiency in writing and maintaining test documentation</li>
+        <li>Familiarity with CI/CD pipelines (GitHub Actions, Bitrise, or similar)</li>
+        <li>Strong analytical thinking and an eye for edge cases</li>
+        <li>Experience testing payment flows or regulated financial products is a plus</li>
+      </ul>
+      <button class="apply-btn" onclick="document.getElementById('ctaBtn').click()">Apply for this role →</button>
+    </div>
+
+    <div class="job-card">
+      <div class="job-header">
+        <div>
+          <div class="job-title">Data Analyst</div>
+          <div class="job-tags">
+            <span class="job-tag tag-type">Full-time</span>
+            <span class="job-tag tag-location">🇬🇧 Remote / Derby</span>
+            <span class="job-tag tag-level">Mid–Senior</span>
+          </div>
+        </div>
+      </div>
+      <p class="job-desc">We are seeking a Data Analyst to help our clients understand player behaviour, operational performance, and risk signals. You will work with large datasets, build dashboards, and surface actionable insights for product and operations teams.</p>
+      <ul class="job-reqs">
+        <li>3+ years of experience in data analysis or business intelligence</li>
+        <li>Proficiency in SQL; Python or R is strongly preferred</li>
+        <li>Experience with BI tools (Tableau, Looker, or Metabase)</li>
+        <li>Ability to communicate insights clearly to non-technical stakeholders</li>
+        <li>Understanding of statistical modelling and cohort analysis</li>
+        <li>Domain knowledge in gaming, fintech, or e-commerce analytics is a strong plus</li>
+      </ul>
+      <button class="apply-btn" onclick="document.getElementById('ctaBtn').click()">Apply for this role →</button>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-label">Why Work With Us</div>
+    <div class="section-title">Perks & Culture</div>
+    <div class="perks-grid">
+      <div class="perk"><div class="perk-icon">🌍</div><h4>Remote-First</h4><p>Work from anywhere in the UK or Europe. We are outcomes-focused, not hours-focused.</p></div>
+      <div class="perk"><div class="perk-icon">📚</div><h4>Learning Budget</h4><p>£1,500 annual budget for courses, conferences, and professional certifications.</p></div>
+      <div class="perk"><div class="perk-icon">⚡</div><h4>Modern Stack</h4><p>We use the latest tools. No legacy systems, no technical debt to fight on day one.</p></div>
+      <div class="perk"><div class="perk-icon">🤝</div><h4>Small, Senior Team</h4><p>Work alongside experienced engineers and designers. Your contributions matter.</p></div>
+      <div class="perk"><div class="perk-icon">🏥</div><h4>Health Cover</h4><p>Private healthcare and dental coverage for all full-time employees.</p></div>
+      <div class="perk"><div class="perk-icon">🚀</div><h4>Growth Path</h4><p>Clear progression framework. We promote from within whenever possible.</p></div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h4>Legal Entity</h4>
+        <p>HELPING TO GIVE LIMITED<br/>2 Northfield, Stenson Fields<br/>Derby, DE24 3JW<br/>United Kingdom</p>
+        <p style="margin-top:16px"><a href="mailto:info@helpingtogive.com" style="color:var(--accent-bright);display:inline">info@helpingtogive.com</a></p>
+      </div>
+      <div class="footer-col">
+        <h4>Offers</h4>
+        <a href="../services/#ios">iOS App Development</a>
+        <a href="../services/#android">Android App Development</a>
+        <a href="../services/#design">App Design</a>
+        <a href="../services/#promotion">App Promotion</a>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <a href="../">Home</a>
+        <a href="../about/">About Us</a>
+        <a href="../services/">Services</a>
+        <a href="../responsible-gaming/">Responsible Gaming</a>
+        <a href="../vacancies/">Vacancies</a>
+        <a href="../press/">Press Centre</a>
+        <a href="../contacts/">Contacts</a>
+        <a href="../policy/">Policy</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>HELPING TO GIVE LIMITED © 2026. All rights reserved.</p>
+      <p><a href="../policy/" style="color:var(--text-muted)">Privacy Policy</a></p>
+    </div>
+  </div>
+</footer>
+
+<script src="../main.js"></script>
+</body>
+</html>

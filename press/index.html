@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Press Centre — Helping to Give</title>
+  <link rel="stylesheet" href="../style.css" />
+  <style>
+    .news-card {
+      background: var(--navy-mid);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      overflow: hidden;
+      transition: border-color 0.3s, transform 0.3s;
+      max-width: 760px;
+    }
+    .news-card:hover { border-color: var(--border-accent); transform: translateY(-2px); }
+    .news-card-top {
+      background: linear-gradient(135deg, var(--navy-light), var(--navy-mid));
+      padding: 40px 48px;
+      border-bottom: 1px solid var(--border);
+      position: relative;
+      overflow: hidden;
+    }
+    .news-card-top::before {
+      content: '';
+      position: absolute;
+      top: -30px; right: -30px;
+      width: 180px; height: 180px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(29,111,232,0.15) 0%, transparent 70%);
+    }
+    .news-date {
+      font-size: 12px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 16px;
+    }
+    .news-card-top h2 {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(22px, 3vw, 32px);
+      font-weight: 800;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      color: var(--text-primary);
+      position: relative;
+    }
+    .news-card-body { padding: 40px 48px; }
+    .news-card-body p {
+      font-size: 15px;
+      color: var(--text-secondary);
+      line-height: 1.9;
+      font-weight: 300;
+      margin-bottom: 20px;
+    }
+    .news-card-body p:last-child { margin-bottom: 0; }
+    .news-card-body strong { color: var(--text-primary); font-weight: 500; }
+    .press-contact {
+      background: var(--accent-glow);
+      border: 1px solid var(--border-accent);
+      border-radius: 16px;
+      padding: 36px;
+      margin-top: 48px;
+      max-width: 760px;
+    }
+    .press-contact h3 { font-family:'Syne',sans-serif;font-size:20px;font-weight:700;margin-bottom:12px; }
+    .press-contact p { font-size:14px;color:var(--text-secondary);line-height:1.7; }
+    @media(max-width:768px) {
+      .news-card-top, .news-card-body { padding: 28px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a href="../" class="logo"><div class="logo-icon">HG</div><div class="logo-text">Helping to Give<span>Limited</span></div></a>
+    <div class="header-spacer"></div>
+    <button class="header-cta" id="ctaBtn">Leave a Request</button>
+    <span class="header-sections-label">Sections</span>
+    <button class="burger" id="burger"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<div class="nav-overlay" id="navOverlay"></div>
+<nav class="nav-drawer" id="navDrawer">
+  <div class="nav-drawer-header">
+    <div style="font-family:'Syne',sans-serif;font-weight:700;font-size:15px;color:var(--text-primary)">Navigation</div>
+    <button class="nav-close" id="navClose">✕</button>
+  </div>
+  <div class="nav-links">
+    <a href="../"><span class="dot"></span>Home</a>
+    <a href="../about/"><span class="dot"></span>About Us</a>
+    <a href="../services/"><span class="dot"></span>Services</a>
+    <a href="../responsible-gaming/"><span class="dot"></span>Responsible Gaming</a>
+    <a href="../vacancies/"><span class="dot"></span>Vacancies</a>
+    <a href="../press/"><span class="dot"></span>Press Centre</a>
+    <a href="../contacts/"><span class="dot"></span>Contacts</a>
+    <a href="../policy/"><span class="dot"></span>Policy</a>
+  </div>
+</nav>
+
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal">
+    <h2>Leave a Request</h2>
+    <form id="ctaForm">
+      <div class="form-group"><label>Name</label><input type="text" placeholder="Your name" required /></div>
+      <div class="form-group"><label>Email</label><input type="email" placeholder="your@email.com" required /></div>
+      <div class="form-group"><label>Comment</label><textarea placeholder="Tell us about your project..."></textarea></div>
+      <button type="submit" class="modal-submit">Send</button>
+      <p class="modal-policy">By submitting, you agree to the processing of personal data in accordance with our <a href="../policy/">Privacy Policy</a>.</p>
+    </form>
+  </div>
+</div>
+
+<main>
+  <div class="page-hero">
+    <div class="tag">Press Centre</div>
+    <h1>Latest News</h1>
+    <p>Official announcements, company updates, and industry commentary from Helping to Give Limited.</p>
+  </div>
+
+  <section class="section">
+
+    <div class="news-card">
+      <div class="news-card-top">
+        <div class="news-date">25 March 2026 · Company Announcement</div>
+        <h2>Helping to Give Limited Launches Full-Service Technology Platform for Betting and Gaming Operators</h2>
+      </div>
+      <div class="news-card-body">
+        <p><strong>Derby, United Kingdom — 25 March 2026.</strong> Helping to Give Limited, a UK-registered technology and consulting company specialising in betting and gaming solutions, today announced the formal launch of its full-service platform offering. The company has opened its services to operators across the United Kingdom and internationally, providing end-to-end support from mobile application development through to regulatory compliance.</p>
+
+        <p>The announcement marks the culmination of an intensive development period during which the company's engineering team built and tested a suite of products designed specifically for the regulated gambling market. These include native iOS and Android applications, an AI-powered risk management system, and a compliance consulting practice anchored by former UK Gambling Commission advisors.</p>
+
+        <p>"The betting and gaming industry has long been underserved by technology partners who truly understand both the product demands and the regulatory environment," said the company's Chief Executive. "Helping to Give was founded to close that gap — to give operators a single trusted partner that can take a product from concept to compliant launch."</p>
+
+        <p>A key focus of the launch is Helping to Give's commitment to <strong>responsible gaming</strong>. Every platform the company builds includes mandatory responsible gaming tooling: deposit limits, self-exclusion integrations with GAMSTOP, and AI-driven behavioural monitoring that can detect early signs of problem gambling. The company has publicly stated that it will not work with operators who do not demonstrate a credible commitment to player protection.</p>
+
+        <p>The company is currently hiring across its mobile engineering and data analytics teams, with remote positions available for candidates based in the United Kingdom and Europe. Applications are being accepted via the company's website.</p>
+
+        <p>Helping to Give Limited is registered in England and Wales and operates from Derby, UK. For press enquiries, please contact <a href="mailto:info@helpingtogive.com" style="color:var(--accent-bright)">info@helpingtogive.com</a>.</p>
+      </div>
+    </div>
+
+    <div class="press-contact">
+      <h3>Press Enquiries</h3>
+      <p>For media enquiries, interview requests, or official statements, please contact our communications team at <a href="mailto:info@helpingtogive.com" style="color:var(--accent-bright)">info@helpingtogive.com</a>. We aim to respond to all press enquiries within one business day.</p>
+    </div>
+
+  </section>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h4>Legal Entity</h4>
+        <p>HELPING TO GIVE LIMITED<br/>2 Northfield, Stenson Fields<br/>Derby, DE24 3JW<br/>United Kingdom</p>
+        <p style="margin-top:16px"><a href="mailto:info@helpingtogive.com" style="color:var(--accent-bright);display:inline">info@helpingtogive.com</a></p>
+      </div>
+      <div class="footer-col">
+        <h4>Offers</h4>
+        <a href="../services/#ios">iOS App Development</a>
+        <a href="../services/#android">Android App Development</a>
+        <a href="../services/#design">App Design</a>
+        <a href="../services/#promotion">App Promotion</a>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <a href="../">Home</a>
+        <a href="../about/">About Us</a>
+        <a href="../services/">Services</a>
+        <a href="../responsible-gaming/">Responsible Gaming</a>
+        <a href="../vacancies/">Vacancies</a>
+        <a href="../press/">Press Centre</a>
+        <a href="../contacts/">Contacts</a>
+        <a href="../policy/">Policy</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>HELPING TO GIVE LIMITED © 2026. All rights reserved.</p>
+      <p><a href="../policy/" style="color:var(--text-muted)">Privacy Policy</a></p>
+    </div>
+  </div>
+</footer>
+
+<script src="../main.js"></script>
+</body>
+</html>

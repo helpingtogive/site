@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Us — Helping to Give</title>
+  <link rel="stylesheet" href="../style.css" />
+  <style>
+    .team-card { background:var(--navy-mid); border:1px solid var(--border); border-radius:16px; padding:28px; transition:all 0.3s; }
+    .team-card:hover { border-color:var(--border-accent); transform:translateY(-2px); }
+    .avatar { width:56px;height:56px;border-radius:14px;background:var(--accent-glow);border:1px solid var(--border-accent);display:flex;align-items:center;justify-content:center;font-family:'Syne',sans-serif;font-weight:800;font-size:18px;color:var(--accent-bright);margin-bottom:16px; }
+    .team-card h3 { font-family:'Syne',sans-serif;font-size:17px;font-weight:700;margin-bottom:4px; }
+    .team-card .role { font-size:13px;color:var(--accent-bright);margin-bottom:12px;letter-spacing:0.04em; }
+    .team-card p { font-size:14px;color:var(--text-secondary);line-height:1.6; }
+    .value-card { border-left:2px solid var(--accent);padding:24px 28px;background:var(--navy-mid);border-radius:0 12px 12px 0;margin-bottom:16px; }
+    .value-card h3 { font-family:'Syne',sans-serif;font-size:17px;font-weight:700;margin-bottom:8px; }
+    .value-card p { font-size:14px;color:var(--text-secondary); }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a href="../" class="logo">
+      <div class="logo-icon">HG</div>
+      <div class="logo-text">Helping to Give<span>Limited</span></div>
+    </a>
+    <div class="header-spacer"></div>
+    <button class="header-cta" id="ctaBtn">Leave a Request</button>
+    <span class="header-sections-label">Sections</span>
+    <button class="burger" id="burger"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<div class="nav-overlay" id="navOverlay"></div>
+<nav class="nav-drawer" id="navDrawer">
+  <div class="nav-drawer-header">
+    <div style="font-family:'Syne',sans-serif;font-weight:700;font-size:15px;color:var(--text-primary)">Navigation</div>
+    <button class="nav-close" id="navClose">✕</button>
+  </div>
+  <div class="nav-links">
+    <a href="../"><span class="dot"></span>Home</a>
+    <a href="../about/"><span class="dot"></span>About Us</a>
+    <a href="../services/"><span class="dot"></span>Services</a>
+    <a href="../responsible-gaming/"><span class="dot"></span>Responsible Gaming</a>
+    <a href="../vacancies/"><span class="dot"></span>Vacancies</a>
+    <a href="../press/"><span class="dot"></span>Press Centre</a>
+    <a href="../contacts/"><span class="dot"></span>Contacts</a>
+    <a href="../policy/"><span class="dot"></span>Policy</a>
+  </div>
+</nav>
+
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal">
+    <h2>Leave a Request</h2>
+    <form id="ctaForm">
+      <div class="form-group"><label>Name</label><input type="text" placeholder="Your name" required /></div>
+      <div class="form-group"><label>Email</label><input type="email" placeholder="your@email.com" required /></div>
+      <div class="form-group"><label>Comment</label><textarea placeholder="Tell us about your project..."></textarea></div>
+      <button type="submit" class="modal-submit">Send</button>
+      <p class="modal-policy">By submitting, you agree to the processing of personal data in accordance with our <a href="../policy/">Privacy Policy</a>.</p>
+    </form>
+  </div>
+</div>
+
+<main>
+  <div class="page-hero">
+    <div class="tag">About the Company</div>
+    <h1>Who We Are</h1>
+    <p>A team of technologists, compliance specialists, and product builders dedicated to elevating the global betting and gaming industry.</p>
+  </div>
+
+  <section class="section">
+    <div class="grid-2" style="gap:60px;align-items:center">
+      <div>
+        <div class="section-label">Our Story</div>
+        <div class="section-title" style="font-size:clamp(24px,3vw,36px)">Born from Expertise, Built for Scale</div>
+        <p style="color:var(--text-secondary);font-size:16px;line-height:1.8;margin-top:16px;font-weight:300">
+          Helping to Give Limited was established in the United Kingdom with a clear ambition: to bring enterprise-grade technology and transparent operational practices to betting and gaming businesses worldwide.
+        </p>
+        <p style="color:var(--text-secondary);font-size:16px;line-height:1.8;margin-top:16px;font-weight:300">
+          Our leadership brings together backgrounds in fintech, software engineering, product design, and regulatory law. This rare combination allows us to deliver solutions that are not only technically excellent but genuinely compliant with the evolving landscape of gaming regulation.
+        </p>
+        <p style="color:var(--text-secondary);font-size:16px;line-height:1.8;margin-top:16px;font-weight:300">
+          Registered in Derby, England, we operate under the oversight of UK regulatory authorities and take seriously our responsibility to promote safe, fair, and responsible gaming.
+        </p>
+      </div>
+      <div>
+        <div class="card" style="padding:40px;border-color:var(--border-accent)">
+          <div class="section-label">Company Details</div>
+          <div style="display:flex;flex-direction:column;gap:20px;margin-top:20px">
+            <div>
+              <div style="font-size:12px;color:var(--text-muted);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:4px">Company Name</div>
+              <div style="font-size:15px;color:var(--text-primary);font-weight:500">Helping to Give Limited</div>
+            </div>
+            <div>
+              <div style="font-size:12px;color:var(--text-muted);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:4px">Jurisdiction</div>
+              <div style="font-size:15px;color:var(--text-primary);font-weight:500">England & Wales, United Kingdom</div>
+            </div>
+            <div>
+              <div style="font-size:12px;color:var(--text-muted);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:4px">Industry</div>
+              <div style="font-size:15px;color:var(--text-primary);font-weight:500">Betting & Gaming Technology (SIC 92000)</div>
+            </div>
+            <div>
+              <div style="font-size:12px;color:var(--text-muted);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:4px">Contact</div>
+              <div style="font-size:15px;color:var(--accent-bright);">info@helpingtogive.com</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="section">
+    <div class="section-label">Our Values</div>
+    <div class="section-title">What Drives Us</div>
+    <div style="margin-top:36px">
+      <div class="value-card">
+        <h3>Integrity First</h3>
+        <p>We build every product with honesty and transparency at its core. Our operators trust us because we hold ourselves to the standards we promote.</p>
+      </div>
+      <div class="value-card">
+        <h3>Engineering Excellence</h3>
+        <p>Clean architecture, rigorous testing, and performance at scale. We don't ship products that aren't ready — and we own the outcomes of what we build.</p>
+      </div>
+      <div class="value-card">
+        <h3>Player-Centred Design</h3>
+        <p>Great gaming experiences are intuitive, accessible, and fair. We advocate for the player even when building for the operator.</p>
+      </div>
+      <div class="value-card">
+        <h3>Compliance as Default</h3>
+        <p>Regulation isn't a constraint — it's the foundation. We engineer compliant systems from day one, not as an afterthought.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="section">
+    <div class="section-label">Leadership Team</div>
+    <div class="section-title">Meet the Experts</div>
+    <div class="grid-3" style="margin-top:36px">
+      <div class="team-card">
+        <div class="avatar">JM</div>
+        <h3>James Morrison</h3>
+        <div class="role">Chief Executive Officer</div>
+        <p>15+ years in digital gaming operations. Former Head of Product at a FTSE-listed gaming group.</p>
+      </div>
+      <div class="team-card">
+        <div class="avatar">SE</div>
+        <h3>Sarah Evans</h3>
+        <div class="role">Chief Technology Officer</div>
+        <p>Expert in high-load distributed systems. Led engineering teams across three continents in fintech and gaming.</p>
+      </div>
+      <div class="team-card">
+        <div class="avatar">RC</div>
+        <h3>Robert Clarke</h3>
+        <div class="role">Head of Compliance</div>
+        <p>Former UK Gambling Commission advisor with deep expertise in licensing, AML, and responsible gaming frameworks.</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h4>Legal Entity</h4>
+        <p>HELPING TO GIVE LIMITED<br/>2 Northfield, Stenson Fields<br/>Derby, DE24 3JW<br/>United Kingdom</p>
+        <p style="margin-top:16px"><a href="mailto:info@helpingtogive.com" style="color:var(--accent-bright);display:inline">info@helpingtogive.com</a></p>
+      </div>
+      <div class="footer-col">
+        <h4>Offers</h4>
+        <a href="../services/#ios">iOS App Development</a>
+        <a href="../services/#android">Android App Development</a>
+        <a href="../services/#design">App Design</a>
+        <a href="../services/#promotion">App Promotion</a>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <a href="../">Home</a>
+        <a href="../about/">About Us</a>
+        <a href="../services/">Services</a>
+        <a href="../responsible-gaming/">Responsible Gaming</a>
+        <a href="../vacancies/">Vacancies</a>
+        <a href="../press/">Press Centre</a>
+        <a href="../contacts/">Contacts</a>
+        <a href="../policy/">Policy</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>HELPING TO GIVE LIMITED © 2026. All rights reserved.</p>
+      <p><a href="../policy/" style="color:var(--text-muted)">Privacy Policy</a></p>
+    </div>
+  </div>
+</footer>
+
+<script src="../main.js"></script>
+</body>
+</html>

@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contacts — Helping to Give</title>
+  <link rel="stylesheet" href="../style.css" />
+  <style>
+    .contact-grid { display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start; }
+    .contact-card {
+      background: var(--navy-mid);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 36px;
+      display:flex;
+      align-items:flex-start;
+      gap:20px;
+      transition: border-color 0.3s;
+    }
+    .contact-card:hover { border-color: var(--border-accent); }
+    .contact-icon { font-size:28px;flex-shrink:0;width:48px;text-align:center; }
+    .contact-card h3 { font-family:'Syne',sans-serif;font-size:15px;font-weight:700;margin-bottom:6px;color:var(--text-muted);letter-spacing:0.08em;text-transform:uppercase; }
+    .contact-card p, .contact-card a { font-size:16px;color:var(--text-primary);text-decoration:none;line-height:1.7; }
+    .contact-card a:hover { color:var(--accent-bright); }
+    .contact-form-card {
+      background: var(--navy-mid);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 48px;
+    }
+    .contact-form-card h2 { font-family:'Syne',sans-serif;font-size:24px;font-weight:800;margin-bottom:8px; }
+    .contact-form-card p { font-size:15px;color:var(--text-secondary);margin-bottom:32px; }
+    .submit-btn {
+      background: var(--accent);
+      color: white;
+      border: none;
+      padding: 14px 28px;
+      border-radius: 10px;
+      font-size: 15px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s;
+      width: 100%;
+    }
+    .submit-btn:hover { background: var(--accent-bright); }
+    @media(max-width:768px) {
+      .contact-grid { grid-template-columns: 1fr; }
+      .contact-form-card { padding: 28px; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a href="../" class="logo"><div class="logo-icon">HG</div><div class="logo-text">Helping to Give<span>Limited</span></div></a>
+    <div class="header-spacer"></div>
+    <button class="header-cta" id="ctaBtn">Leave a Request</button>
+    <span class="header-sections-label">Sections</span>
+    <button class="burger" id="burger"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<div class="nav-overlay" id="navOverlay"></div>
+<nav class="nav-drawer" id="navDrawer">
+  <div class="nav-drawer-header">
+    <div style="font-family:'Syne',sans-serif;font-weight:700;font-size:15px;color:var(--text-primary)">Navigation</div>
+    <button class="nav-close" id="navClose">✕</button>
+  </div>
+  <div class="nav-links">
+    <a href="../"><span class="dot"></span>Home</a>
+    <a href="../about/"><span class="dot"></span>About Us</a>
+    <a href="../services/"><span class="dot"></span>Services</a>
+    <a href="../responsible-gaming/"><span class="dot"></span>Responsible Gaming</a>
+    <a href="../vacancies/"><span class="dot"></span>Vacancies</a>
+    <a href="../press/"><span class="dot"></span>Press Centre</a>
+    <a href="../contacts/"><span class="dot"></span>Contacts</a>
+    <a href="../policy/"><span class="dot"></span>Policy</a>
+  </div>
+</nav>
+
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal">
+    <h2>Leave a Request</h2>
+    <form id="ctaForm">
+      <div class="form-group"><label>Name</label><input type="text" placeholder="Your name" required /></div>
+      <div class="form-group"><label>Email</label><input type="email" placeholder="your@email.com" required /></div>
+      <div class="form-group"><label>Comment</label><textarea placeholder="Tell us about your project..."></textarea></div>
+      <button type="submit" class="modal-submit">Send</button>
+      <p class="modal-policy">By submitting, you agree to the processing of personal data in accordance with our <a href="../policy/">Privacy Policy</a>.</p>
+    </form>
+  </div>
+</div>
+
+<main>
+  <div class="page-hero">
+    <div class="tag">Get in Touch</div>
+    <h1>Contacts</h1>
+    <p>Whether you have a project in mind or a question about our services — we would love to hear from you.</p>
+  </div>
+
+  <section class="section">
+    <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-bottom:48px">
+      <div class="contact-card">
+        <div class="contact-icon">📧</div>
+        <div>
+          <h3>Email</h3>
+          <a href="mailto:info@helpingtogive.com">info@helpingtogive.com</a>
+        </div>
+      </div>
+      <div class="contact-card">
+        <div class="contact-icon">🏢</div>
+        <div>
+          <h3>Registered Address</h3>
+          <p>2 Northfield, Stenson Fields<br/>Derby, DE24 3JW<br/>United Kingdom</p>
+        </div>
+      </div>
+      <div class="contact-card">
+        <div class="contact-icon">⏱️</div>
+        <div>
+          <h3>Response Time</h3>
+          <p>We respond to all enquiries within 1 business day.</p>
+        </div>
+      </div>
+      <div class="contact-card">
+        <div class="contact-icon">🌍</div>
+        <div>
+          <h3>Working Hours</h3>
+          <p>Monday–Friday<br/>09:00–18:00 GMT</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="contact-form-card">
+      <h2>Send Us a Message</h2>
+      <p>Fill in the form and a member of our team will get back to you shortly.</p>
+      <form onsubmit="handleContact(event)">
+        <div class="form-group"><label>Name</label><input type="text" placeholder="Your full name" required /></div>
+        <div class="form-group"><label>Email</label><input type="email" placeholder="your@email.com" required /></div>
+        <div class="form-group"><label>Subject</label><input type="text" placeholder="e.g. Partnership enquiry" /></div>
+        <div class="form-group"><label>Message</label><textarea style="height:140px" placeholder="Tell us about your project, company, or question..." required></textarea></div>
+        <button type="submit" class="submit-btn" id="contactSubmit">Send Message</button>
+        <p class="modal-policy" style="margin-top:16px">By submitting this form, you agree to the processing of personal data in accordance with our <a href="../policy/">Privacy Policy</a>.</p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h4>Legal Entity</h4>
+        <p>HELPING TO GIVE LIMITED<br/>2 Northfield, Stenson Fields<br/>Derby, DE24 3JW<br/>United Kingdom</p>
+        <p style="margin-top:16px"><a href="mailto:info@helpingtogive.com" style="color:var(--accent-bright);display:inline">info@helpingtogive.com</a></p>
+      </div>
+      <div class="footer-col">
+        <h4>Offers</h4>
+        <a href="../services/#ios">iOS App Development</a>
+        <a href="../services/#android">Android App Development</a>
+        <a href="../services/#design">App Design</a>
+        <a href="../services/#promotion">App Promotion</a>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <a href="../">Home</a>
+        <a href="../about/">About Us</a>
+        <a href="../services/">Services</a>
+        <a href="../responsible-gaming/">Responsible Gaming</a>
+        <a href="../vacancies/">Vacancies</a>
+        <a href="../press/">Press Centre</a>
+        <a href="../contacts/">Contacts</a>
+        <a href="../policy/">Policy</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>HELPING TO GIVE LIMITED © 2026. All rights reserved.</p>
+      <p><a href="../policy/" style="color:var(--text-muted)">Privacy Policy</a></p>
+    </div>
+  </div>
+</footer>
+
+<script src="../main.js"></script>
+<script>
+function handleContact(e) {
+  e.preventDefault();
+  const btn = document.getElementById('contactSubmit');
+  btn.textContent = 'Message Sent ✓';
+  btn.style.background = '#16A34A';
+  btn.disabled = true;
+}
+</script>
+</body>
+</html>

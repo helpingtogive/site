@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Helping to Give — Leading Betting & Gaming Solutions</title>
+  <meta name="description" content="Helping to Give Limited builds next-generation platforms for betting and gambling operations. Technology, compliance, and innovation." />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* HOME-SPECIFIC */
+    .hero {
+      min-height: calc(100vh - 72px);
+      display: flex;
+      align-items: center;
+      padding: 80px 40px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 60% 50% at 70% 50%, rgba(29,111,232,0.12) 0%, transparent 70%),
+        radial-gradient(ellipse 40% 60% at 20% 80%, rgba(29,111,232,0.06) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .hero-grid-bg {
+      position: absolute;
+      inset: 0;
+      background-image: linear-gradient(var(--border) 1px, transparent 1px), linear-gradient(90deg, var(--border) 1px, transparent 1px);
+      background-size: 60px 60px;
+      mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 40%, transparent 100%);
+      opacity: 0.4;
+    }
+    .hero-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      width: 100%;
+      position: relative;
+    }
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent-bright);
+      margin-bottom: 28px;
+      padding: 8px 16px;
+      border: 1px solid var(--border-accent);
+      border-radius: 100px;
+      background: var(--accent-glow);
+      animation: fadeUp 0.6s ease both;
+    }
+    .hero-tag .pulse {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--accent-bright);
+      animation: pulse 2s ease-in-out infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(0.7); }
+    }
+    .hero h1 {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(40px, 6vw, 80px);
+      font-weight: 800;
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+      color: var(--text-primary);
+      max-width: 760px;
+      margin-bottom: 28px;
+      animation: fadeUp 0.6s 0.1s ease both;
+    }
+    .hero h1 em {
+      font-style: normal;
+      background: linear-gradient(135deg, var(--accent-bright), #7BB3FF);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero-desc {
+      font-size: 18px;
+      color: var(--text-secondary);
+      max-width: 520px;
+      line-height: 1.7;
+      font-weight: 300;
+      margin-bottom: 40px;
+      animation: fadeUp 0.6s 0.2s ease both;
+    }
+    .hero-actions {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      animation: fadeUp 0.6s 0.3s ease both;
+    }
+    .btn-primary {
+      background: var(--accent);
+      color: white;
+      border: none;
+      padding: 14px 28px;
+      border-radius: 10px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 15px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .btn-primary:hover { background: var(--accent-bright); transform: translateY(-2px); box-shadow: 0 6px 24px rgba(29,111,232,0.4); }
+    .btn-secondary {
+      color: var(--text-secondary);
+      border: 1px solid var(--border);
+      padding: 14px 28px;
+      border-radius: 10px;
+      font-size: 15px;
+      text-decoration: none;
+      transition: all 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .btn-secondary:hover { border-color: var(--accent); color: var(--text-primary); }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* STATS */
+    .stats-strip {
+      background: var(--navy-mid);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 40px;
+    }
+    .stats-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 40px;
+    }
+    .stat { text-align: center; }
+    .stat-num {
+      font-family: 'Syne', sans-serif;
+      font-size: 40px;
+      font-weight: 800;
+      color: var(--text-primary);
+      line-height: 1;
+      letter-spacing: -0.03em;
+    }
+    .stat-num span { color: var(--accent-bright); }
+    .stat-label {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-top: 6px;
+      letter-spacing: 0.04em;
+    }
+
+    /* SERVICES PREVIEW */
+    .service-card {
+      background: var(--navy-mid);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 32px;
+      transition: all 0.3s;
+      position: relative;
+      overflow: hidden;
+    }
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--accent), transparent);
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .service-card:hover { border-color: var(--border-accent); transform: translateY(-4px); }
+    .service-card:hover::before { opacity: 1; }
+    .service-icon {
+      width: 48px; height: 48px;
+      border-radius: 12px;
+      background: var(--accent-glow);
+      border: 1px solid var(--border-accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      margin-bottom: 20px;
+    }
+    .service-card h3 {
+      font-family: 'Syne', sans-serif;
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 10px;
+      color: var(--text-primary);
+    }
+    .service-card p { font-size: 14px; color: var(--text-secondary); line-height: 1.7; }
+
+    /* COMPLIANCE */
+    .compliance-row {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-top: 28px;
+    }
+    .compliance-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 18px;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      font-size: 13px;
+      color: var(--text-secondary);
+      background: var(--navy-mid);
+    }
+    .compliance-badge span { font-size: 16px; }
+
+    /* MISSION */
+    .mission-block {
+      background: linear-gradient(135deg, var(--navy-light), var(--navy-mid));
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 60px;
+      position: relative;
+      overflow: hidden;
+    }
+    .mission-block::before {
+      content: '';
+      position: absolute;
+      top: -40px; right: -40px;
+      width: 240px; height: 240px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(29,111,232,0.15) 0%, transparent 70%);
+    }
+    .mission-block h2 {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(24px, 3vw, 36px);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: var(--text-primary);
+      max-width: 600px;
+      margin-bottom: 20px;
+      position: relative;
+    }
+    .mission-block p {
+      font-size: 16px;
+      color: var(--text-secondary);
+      max-width: 580px;
+      line-height: 1.8;
+      font-weight: 300;
+      position: relative;
+    }
+
+    @media (max-width: 768px) {
+      .hero { padding: 60px 20px; }
+      .stats-inner { grid-template-columns: 1fr 1fr; }
+      .stats-strip { padding: 32px 20px; }
+      .mission-block { padding: 36px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="header-inner">
+    <a href="./" class="logo">
+      <div class="logo-icon">HG</div>
+      <div class="logo-text">Helping to Give<span>Limited</span></div>
+    </a>
+    <div class="header-spacer"></div>
+    <button class="header-cta" id="ctaBtn">Leave a Request</button>
+    <span class="header-sections-label">Sections</span>
+    <button class="burger" id="burger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- NAV OVERLAY + DRAWER -->
+<div class="nav-overlay" id="navOverlay"></div>
+<nav class="nav-drawer" id="navDrawer">
+  <div class="nav-drawer-header">
+    <div class="logo-text" style="font-family:'Syne',sans-serif;font-weight:700;font-size:15px;color:var(--text-primary)">Navigation</div>
+    <button class="nav-close" id="navClose">✕</button>
+  </div>
+  <div class="nav-links">
+    <a href="./"><span class="dot"></span>Home</a>
+    <a href="./about/"><span class="dot"></span>About Us</a>
+    <a href="./services/"><span class="dot"></span>Services</a>
+    <a href="./responsible-gaming/"><span class="dot"></span>Responsible Gaming</a>
+    <a href="./vacancies/"><span class="dot"></span>Vacancies</a>
+    <a href="./press/"><span class="dot"></span>Press Centre</a>
+    <a href="./contacts/"><span class="dot"></span>Contacts</a>
+    <a href="./policy/"><span class="dot"></span>Policy</a>
+  </div>
+</nav>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal">
+    <h2>Leave a Request</h2>
+    <form id="ctaForm">
+      <div class="form-group">
+        <label>Name</label>
+        <input type="text" placeholder="Your name" required />
+      </div>
+      <div class="form-group">
+        <label>Email</label>
+        <input type="email" placeholder="your@email.com" required />
+      </div>
+      <div class="form-group">
+        <label>Comment</label>
+        <textarea placeholder="Tell us about your project..."></textarea>
+      </div>
+      <button type="submit" class="modal-submit">Send</button>
+      <p class="modal-policy">By submitting, you agree to the processing of personal data in accordance with our <a href="./policy/">Privacy Policy</a>.</p>
+    </form>
+  </div>
+</div>
+
+<!-- MAIN -->
+<main>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-grid-bg"></div>
+    <div class="hero-inner">
+      <div class="hero-tag"><span class="pulse"></span>UK Registered Company</div>
+      <h1>Leading the Future of <em>Digital Entertainment</em> and Betting Operations</h1>
+      <p class="hero-desc">We engineer high-performance platforms for online betting and gaming — combining AI-driven risk analytics, regulatory compliance, and seamless mobile experiences.</p>
+      <div class="hero-actions">
+        <button class="btn-primary" id="ctaBtn2">Get in Touch →</button>
+        <a href="./services/" class="btn-secondary">Our Services</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <div class="stats-strip">
+    <div class="stats-inner">
+      <div class="stat">
+        <div class="stat-num">5<span>+</span></div>
+        <div class="stat-label">Years of team expertise</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">100<span>%</span></div>
+        <div class="stat-label">UK Compliance</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">24<span>/7</span></div>
+        <div class="stat-label">Technical Support</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">AI<span>-led</span></div>
+        <div class="stat-label">Risk Management</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MISSION -->
+  <section class="section">
+    <div class="mission-block">
+      <h2>Building transparent, secure environments for digital entertainment</h2>
+      <p>Helping to Give Limited was founded with a clear mission: to raise the standard of technology and compliance in the betting and gaming industry. We implement advanced algorithms, real-time analytics, and cloud-native infrastructure to deliver platforms that operators and players can trust.</p>
+    </div>
+  </section>
+
+  <!-- SERVICES PREVIEW -->
+  <section class="section">
+    <div class="section-label">What we do</div>
+    <div class="section-title">Our Core Services</div>
+    <p class="section-desc" style="margin-bottom:40px">From platform engineering to regulatory consulting — we cover the full technology lifecycle of a gaming operation.</p>
+    <div class="grid-3">
+      <div class="service-card">
+        <div class="service-icon">⚙️</div>
+        <h3>Platform Development</h3>
+        <p>High-load systems built for 24/7 uptime. Scalable architecture for online betting and casino operations of any scale.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">📱</div>
+        <h3>Mobile Gaming Solutions</h3>
+        <p>Native iOS and Android applications with best-in-class UX/UI — designed for engagement and retention.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🛡️</div>
+        <h3>Risk Management & Analytics</h3>
+        <p>AI-powered fraud prevention, behaviour analysis, and real-time risk scoring to ensure fair and secure play.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">📊</div>
+        <h3>Operational Excellence</h3>
+        <p>End-to-end operational management — marketing automation, customer support systems, and KPI dashboards.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">⚖️</div>
+        <h3>Compliance Consulting</h3>
+        <p>We monitor regulatory changes and ensure full compliance with UK Gambling Commission requirements and GDPR.</p>
+      </div>
+      <div class="service-card" style="display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;background:var(--accent-glow);border-color:var(--border-accent)">
+        <div style="font-size:32px;margin-bottom:12px">→</div>
+        <h3>View All Services</h3>
+        <a href="./services/" style="margin-top:12px;color:var(--accent-bright);font-size:14px;text-decoration:none">Learn more</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMPLIANCE -->
+  <section class="section">
+    <div class="section-label">Security & Compliance</div>
+    <div class="section-title">Standards We Uphold</div>
+    <p class="section-desc">Every platform we build is engineered to the highest standards of security, data protection, and regulatory compliance.</p>
+    <div class="compliance-row">
+      <div class="compliance-badge"><span>🔐</span> SSL / TLS Encryption</div>
+      <div class="compliance-badge"><span>🇬🇧</span> UK Gambling Commission</div>
+      <div class="compliance-badge"><span>🔒</span> GDPR Compliant</div>
+      <div class="compliance-badge"><span>☁️</span> Cloud-Native Infrastructure</div>
+      <div class="compliance-badge"><span>🤖</span> AI Risk Analysis</div>
+    </div>
+  </section>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <!-- Row 1: Legal -->
+      <div class="footer-col">
+        <h4>Legal Entity</h4>
+        <p>
+          HELPING TO GIVE LIMITED<br/>
+          2 Northfield, Stenson Fields<br/>
+          Derby, DE24 3JW<br/>
+          United Kingdom
+        </p>
+        <p style="margin-top:16px">
+          <a href="mailto:info@helpingtogive.com" style="color:var(--accent-bright);display:inline">info@helpingtogive.com</a>
+        </p>
+      </div>
+      <!-- Row 2: Offers -->
+      <div class="footer-col">
+        <h4>Offers</h4>
+        <a href="./services/#ios">iOS App Development</a>
+        <a href="./services/#android">Android App Development</a>
+        <a href="./services/#design">App Design</a>
+        <a href="./services/#promotion">App Promotion</a>
+      </div>
+      <!-- Row 3: Company -->
+      <div class="footer-col">
+        <h4>Company</h4>
+        <a href="./">Home</a>
+        <a href="./about/">About Us</a>
+        <a href="./services/">Services</a>
+        <a href="./responsible-gaming/">Responsible Gaming</a>
+        <a href="./vacancies/">Vacancies</a>
+        <a href="./press/">Press Centre</a>
+        <a href="./contacts/">Contacts</a>
+        <a href="./policy/">Policy</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>HELPING TO GIVE LIMITED © 2026. All rights reserved.</p>
+      <p><a href="./policy/" style="color:var(--text-muted)">Privacy Policy</a></p>
+    </div>
+  </div>
+</footer>
+
+<script src="main.js"></script>
+<script>
+  // second CTA button
+  document.getElementById('ctaBtn2').addEventListener('click', () => {
+    document.getElementById('modalOverlay').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  });
+</script>
+</body>
+</html>

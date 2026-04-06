@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Responsible Gaming — Helping to Give</title>
+  <link rel="stylesheet" href="../style.css" />
+  <style>
+    .rg-principle {
+      display: flex;
+      gap: 24px;
+      align-items: flex-start;
+      padding: 32px;
+      background: var(--navy-mid);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      margin-bottom: 16px;
+      transition: border-color 0.3s;
+    }
+    .rg-principle:hover { border-color: var(--border-accent); }
+    .rg-num {
+      font-family: 'Syne', sans-serif;
+      font-size: 32px;
+      font-weight: 800;
+      color: var(--border-accent);
+      line-height: 1;
+      flex-shrink: 0;
+      width: 40px;
+      letter-spacing: -0.03em;
+    }
+    .rg-principle h3 { font-family:'Syne',sans-serif;font-size:18px;font-weight:700;margin-bottom:8px; }
+    .rg-principle p { font-size:14px;color:var(--text-secondary);line-height:1.7; }
+    .help-box {
+      background: linear-gradient(135deg, rgba(29,111,232,0.08), rgba(29,111,232,0.03));
+      border: 1px solid var(--border-accent);
+      border-radius: 20px;
+      padding: 48px;
+    }
+    .help-box h2 { font-family:'Syne',sans-serif;font-size:28px;font-weight:800;margin-bottom:16px; }
+    .help-box p { font-size:15px;color:var(--text-secondary);line-height:1.8;max-width:560px; }
+    .resource-link {
+      display:flex;
+      align-items:center;
+      gap:12px;
+      padding:16px 20px;
+      background:var(--navy-mid);
+      border:1px solid var(--border);
+      border-radius:10px;
+      text-decoration:none;
+      color:var(--text-primary);
+      font-size:15px;
+      transition:all 0.2s;
+      margin-top:12px;
+    }
+    .resource-link:hover { border-color:var(--accent); color:var(--accent-bright); }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a href="../" class="logo"><div class="logo-icon">HG</div><div class="logo-text">Helping to Give<span>Limited</span></div></a>
+    <div class="header-spacer"></div>
+    <button class="header-cta" id="ctaBtn">Leave a Request</button>
+    <span class="header-sections-label">Sections</span>
+    <button class="burger" id="burger"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<div class="nav-overlay" id="navOverlay"></div>
+<nav class="nav-drawer" id="navDrawer">
+  <div class="nav-drawer-header">
+    <div style="font-family:'Syne',sans-serif;font-weight:700;font-size:15px;color:var(--text-primary)">Navigation</div>
+    <button class="nav-close" id="navClose">✕</button>
+  </div>
+  <div class="nav-links">
+    <a href="../"><span class="dot"></span>Home</a>
+    <a href="../about/"><span class="dot"></span>About Us</a>
+    <a href="../services/"><span class="dot"></span>Services</a>
+    <a href="../responsible-gaming/"><span class="dot"></span>Responsible Gaming</a>
+    <a href="../vacancies/"><span class="dot"></span>Vacancies</a>
+    <a href="../press/"><span class="dot"></span>Press Centre</a>
+    <a href="../contacts/"><span class="dot"></span>Contacts</a>
+    <a href="../policy/"><span class="dot"></span>Policy</a>
+  </div>
+</nav>
+
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal">
+    <h2>Leave a Request</h2>
+    <form id="ctaForm">
+      <div class="form-group"><label>Name</label><input type="text" placeholder="Your name" required /></div>
+      <div class="form-group"><label>Email</label><input type="email" placeholder="your@email.com" required /></div>
+      <div class="form-group"><label>Comment</label><textarea placeholder="Tell us about your project..."></textarea></div>
+      <button type="submit" class="modal-submit">Send</button>
+      <p class="modal-policy">By submitting, you agree to the processing of personal data in accordance with our <a href="../policy/">Privacy Policy</a>.</p>
+    </form>
+  </div>
+</div>
+
+<main>
+  <div class="page-hero">
+    <div class="tag">Our Commitment</div>
+    <h1>Responsible Gaming</h1>
+    <p>We believe that entertainment should always be safe. Every platform and product we create is built with player protection at its foundation.</p>
+  </div>
+
+  <section class="section">
+    <p style="font-size:16px;color:var(--text-secondary);line-height:1.9;max-width:720px;font-weight:300;margin-bottom:48px">
+      Responsible gaming is not a regulatory checkbox for Helping to Give — it is a core design principle. We work with operators to embed player safety tools directly into the product experience, making responsible choices the default rather than the exception.
+    </p>
+
+    <div class="section-label" style="margin-bottom:24px">Our Principles</div>
+
+    <div class="rg-principle">
+      <div class="rg-num">01</div>
+      <div>
+        <h3>Player Identity Verification</h3>
+        <p>All platforms we build include robust KYC (Know Your Customer) flows. Age verification is mandatory at registration, ensuring that gambling products remain inaccessible to minors. We integrate industry-leading identity verification providers to streamline the process without compromising security.</p>
+      </div>
+    </div>
+
+    <div class="rg-principle">
+      <div class="rg-num">02</div>
+      <div>
+        <h3>Deposit & Spend Limits</h3>
+        <p>Our systems allow players to set daily, weekly, and monthly deposit limits at any time. Once a limit is set, it cannot be increased immediately — a mandatory cooling-off period is enforced to prevent impulsive decisions. Decreasing limits takes effect immediately.</p>
+      </div>
+    </div>
+
+    <div class="rg-principle">
+      <div class="rg-num">03</div>
+      <div>
+        <h3>Self-Exclusion & Time-Out</h3>
+        <p>We implement compliant self-exclusion tools that connect with the GAMSTOP national self-exclusion scheme in the UK. Players can also set temporary time-outs ranging from 24 hours to 6 weeks, giving them control over their gaming habits.</p>
+      </div>
+    </div>
+
+    <div class="rg-principle">
+      <div class="rg-num">04</div>
+      <div>
+        <h3>Behaviour Monitoring & Early Intervention</h3>
+        <p>Our AI-driven analytics detect patterns associated with problem gambling — rapid escalation of bets, unusual session lengths, and loss-chasing behaviour. When risk indicators are flagged, the system prompts responsible gaming messages and notifies the operator's safeguarding team.</p>
+      </div>
+    </div>
+
+    <div class="rg-principle">
+      <div class="rg-num">05</div>
+      <div>
+        <h3>Transparent Communication</h3>
+        <p>Every product we deliver includes clear, plain-language communication about the risks of gambling. Odds are displayed honestly, and promotional materials never obscure terms and conditions.</p>
+      </div>
+    </div>
+
+    <div class="rg-principle">
+      <div class="rg-num">06</div>
+      <div>
+        <h3>Regulatory Alignment</h3>
+        <p>We continuously monitor guidelines from the UK Gambling Commission, GamCare, and GambleAware to ensure our implementations remain at the forefront of responsible gaming best practice. Compliance is built into our development lifecycle from the first sprint.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="help-box">
+      <h2>Need Support?</h2>
+      <p>If you or someone you know is struggling with gambling, please reach out to one of the following organisations. Help is available 24 hours a day.</p>
+      <a class="resource-link" href="https://www.gamcare.org.uk" target="_blank" rel="noopener">🆘 GamCare — Free support for gambling problems</a>
+      <a class="resource-link" href="https://www.begambleaware.org" target="_blank" rel="noopener">🛡️ BeGambleAware — Advice and support</a>
+      <a class="resource-link" href="https://www.gamstop.co.uk" target="_blank" rel="noopener">⛔ GAMSTOP — National self-exclusion scheme</a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h4>Legal Entity</h4>
+        <p>HELPING TO GIVE LIMITED<br/>2 Northfield, Stenson Fields<br/>Derby, DE24 3JW<br/>United Kingdom</p>
+        <p style="margin-top:16px"><a href="mailto:info@helpingtogive.com" style="color:var(--accent-bright);display:inline">info@helpingtogive.com</a></p>
+      </div>
+      <div class="footer-col">
+        <h4>Offers</h4>
+        <a href="../services/#ios">iOS App Development</a>
+        <a href="../services/#android">Android App Development</a>
+        <a href="../services/#design">App Design</a>
+        <a href="../services/#promotion">App Promotion</a>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <a href="../">Home</a>
+        <a href="../about/">About Us</a>
+        <a href="../services/">Services</a>
+        <a href="../responsible-gaming/">Responsible Gaming</a>
+        <a href="../vacancies/">Vacancies</a>
+        <a href="../press/">Press Centre</a>
+        <a href="../contacts/">Contacts</a>
+        <a href="../policy/">Policy</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>HELPING TO GIVE LIMITED © 2026. All rights reserved.</p>
+      <p><a href="../policy/" style="color:var(--text-muted)">Privacy Policy</a></p>
+    </div>
+  </div>
+</footer>
+
+<script src="../main.js"></script>
+</body>
+</html>
